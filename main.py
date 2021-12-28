@@ -26,4 +26,4 @@ async def upload_excel_file(file: UploadFile = File(..., media_type="application
                                                                     ".spreadsheetml.sheet")):
     file = await file.read()
     response = generate_certificates(file)
-    return StreamingResponse(response[1], media_type="image/png")
+    return StreamingResponse(response[99], media_type="image/png")
