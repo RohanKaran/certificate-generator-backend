@@ -1,8 +1,6 @@
 from fastapi import FastAPI
-# , File, UploadFile
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-# from fastapi.responses import StreamingResponse
 from certificate import generate_certificate
 # from ensafe_certificate import generate_certificates
 
@@ -34,13 +32,6 @@ async def root():
 async def say_hello(name: str):
     return {"message": f"Hello {name}"}
 
-
-# @app.get("/cat")
-# async def cat():
-#     response = generate_certificate("Rohan")
-#     res = base64.b64encode(response)
-#     array = [res, res, res]
-#     return res
 
 
 # @app.post("/upload/")
