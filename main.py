@@ -4,7 +4,6 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 # from fastapi.responses import StreamingResponse
 from certificate import generate_certificate
-
 # from ensafe_certificate import generate_certificates
 
 app = FastAPI()
