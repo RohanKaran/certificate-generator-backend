@@ -1,9 +1,11 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI
+# , File, UploadFile
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+# from fastapi.responses import StreamingResponse
 from certificate import generate_certificate
-from ensafe_certificate import generate_certificates
+
+# from ensafe_certificate import generate_certificates
 
 app = FastAPI()
 
@@ -42,12 +44,12 @@ async def say_hello(name: str):
 #     return res
 
 
-@app.post("/upload/")
-async def upload_excel_file(file: UploadFile = File(..., media_type="application/vnd.openxmlformats-officedocument"
-                                                                    ".spreadsheetml.sheet")):
-    file = await file.read()
-    response = generate_certificates(file)
-    return StreamingResponse(response[99], media_type="image/png")
+# @app.post("/upload/")
+# async def upload_excel_file(file: UploadFile = File(..., media_type="application/vnd.openxmlformats-officedocument"
+#                                                                     ".spreadsheetml.sheet")):
+#     file = await file.read()
+#     response = generate_certificates(file)
+#     return StreamingResponse(response[99], media_type="image/png")
 
 
 @app.post("/add/")
