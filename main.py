@@ -22,6 +22,7 @@ app.add_middleware(
 class Name(BaseModel):
     name: str
     org: str
+    logo: str
 
 
 @app.get("/")
@@ -44,5 +45,5 @@ async def say_hello(name: str):
 
 @app.post("/add/")
 async def add_name(inp: Name):
-    response = generate_certificate(inp.org, inp.name)
+    response = generate_certificate(inp.org, inp.logo, inp.name)
     return response
