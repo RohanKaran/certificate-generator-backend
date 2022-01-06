@@ -5,7 +5,7 @@ from base64 import b64encode
 
 
 def generate_certificate(org, name):
-    font1 = ImageFont.truetype("Lato-Regular.ttf")
+    font1 = ImageFont.truetype("font/Lato-Regular.ttf")
     url = "https://i.imgur.com/wf08YgQ.png"
     response = get(url)
     img = Image.open(BytesIO(response.content))
@@ -17,7 +17,7 @@ def generate_certificate(org, name):
     buffered = BytesIO()
     img.save(buffered, format="PNG")
     certificate = b64encode(buffered.getvalue())
-    return certificate
+    return {"file": certificate, "filename": f"{name}.png", "filetype": "images/png"}
 
 
 generate_certificate("org", "name")
