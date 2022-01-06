@@ -20,7 +20,7 @@ def generate_certificate(org, logo, name):
     if logo:
         logo = b64decode(logo)
         logoimg = Image.open(BytesIO(logo))
-        logoimg.thumbnail(logosize)
+        logoimg.thumbnail(logosize, Image.LANCZOS)
         img.paste(logoimg, (1700, 140), logoimg)
 
     buffered = BytesIO()
