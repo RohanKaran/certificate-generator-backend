@@ -5,7 +5,8 @@ from base64 import b64encode
 
 
 def generate_certificate(org, name):
-    font1 = ImageFont.truetype("Lato-Regular.ttf", 100)
+    font1 = ImageFont.truetype("Cardo-Bold.ttf", 100)
+    font2 = ImageFont.truetype("Lato-Regular.ttf", 50)
     url = "https://i.imgur.com/2Uy7nTw.png"
     response = get(url)
     img = Image.open(BytesIO(response.content))
@@ -14,7 +15,7 @@ def generate_certificate(org, name):
     w1, h1 = draw.textsize(name)
     w2, h2 = draw.textsize(org)
     draw.text(((W - w1) / 2 + 40, (H - h1) / 2), name, fill="black", font=font1, anchor="ms")
-    draw.text((500, 1140), org, fill="black", font=font1, anchor="ms", stroke_width=2)
+    draw.text((500, 1140), org, fill="black", font=font2, anchor="r", stroke_width=2)
 
     buffered = BytesIO()
     img.save(buffered, format="PNG")
