@@ -17,7 +17,7 @@ def generate_certificate(org, name):
     buffered = BytesIO()
     img.save(buffered, format="PNG")
     certificate = b64encode(buffered.getvalue())
-    return {"file": certificate, "filename": f"{name}.png", "filetype": "images/png"}
+    return certificate
 
 
 generate_certificate("org", "name")
