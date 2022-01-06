@@ -12,7 +12,7 @@ def generate_certificate(org, name):
     W, H = [2000, 1414]
     draw = ImageDraw.Draw(img)
     w, h = draw.textsize(name)
-    draw.text((0, 0), name, fill="black", font=font1, anchor="ms")
+    draw.text(((W - w) / 2, (H - h) / 2), name, fill="black", font=font1, anchor="ms")
 
     buffered = BytesIO()
     img.save(buffered, format="PNG")
