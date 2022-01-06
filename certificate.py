@@ -14,7 +14,7 @@ def generate_certificate(org, logo, name):
     draw = ImageDraw.Draw(img)
     w1, h1 = draw.textsize(name)
     draw.text(((W - w1) / 2 + 40, (H - h1) / 2), name, fill="black", font=font1, anchor="ms")
-    draw.text((540, 1150), org, fill="black", font=font2, anchor="ms")
+    draw.text((530, 1150), org, fill="black", font=font2, anchor="ms")
 
     logosize = (130, 130)
     if logo:
