@@ -19,7 +19,7 @@ def generate_certificate(org, logo, name):
     logosize = (130, 130)
     try:
         logo = b64decode(logo)
-        logoimg = Image.open(BytesIO(logo))
+        logoimg = Image.open(BytesIO(logo)).convert('RGBA')
         logoimg.thumbnail(logosize, Image.LANCZOS)
         img.paste(logoimg, (1700, 140), logoimg)
     except UnidentifiedImageError:
