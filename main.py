@@ -8,7 +8,7 @@ from certificate import generate_certificate
 app = FastAPI()
 
 origins = [
-    "https://cg-rohankaran.herokuapp.com",
+    "*",
 ]
 app.add_middleware(
     CORSMiddleware,
@@ -20,19 +20,10 @@ app.add_middleware(
 
 
 class Name(BaseModel):
+    index: str
     name: str
     org: str
     logo: str
-
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
 
 
 # @app.post("/upload/")
@@ -45,5 +36,5 @@ async def say_hello(name: str):
 
 @app.post("/add/")
 async def add_name(inp: Name):
-    response = generate_certificate(inp.org, inp.logo, inp.name)
+    response = generate_certificate(inp.index, inp.org, inp.logo, inp.name)
     return response
