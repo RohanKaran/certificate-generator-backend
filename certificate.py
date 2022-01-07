@@ -1,5 +1,5 @@
 from io import BytesIO
-from PIL import Image, ImageDraw, ImageFont, UnidentifiedImageError
+from PIL import Image, ImageDraw, ImageFont
 from requests import get
 from base64 import b64encode, b64decode
 
@@ -17,13 +17,12 @@ def generate_certificate(org, logo, name):
     draw.text((540, 1150), org, fill="black", font=font2, anchor="ms")
 
     logosize = (130, 130)
-    try:
+    if logo:
         logo = b64decode(logo)
         logoimg = Image.open(BytesIO(logo))
-        logoimg.thumbnail(logosize)
-        img.paste(logoimg, (1700, 140))
-    except UnidentifiedImageError:
-        pass
+        logoimg.thumbnail(logosize, Image.LANCZOS)
+        img.paste(logoimg, (1700, 140), logoimg)
+
     buffered = BytesIO()
     img.save(buffered, format="PNG")
     certificate = b64encode(buffered.getvalue())
