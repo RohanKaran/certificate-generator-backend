@@ -9,36 +9,36 @@ def generate_certificate(index, org, logo, name):
             "nameColor": "black",
             "namePos": (1000, 707),
             "orgColor": "black",
-            "oPos": (540, 1150),
+            "oPos": (540, 1145),
         },
         "2": {
             "nameColor": "black",
-            "namePos": (1000, 707),
+            "namePos": (1000, 760),
             "orgColor": "black",
-            "oPos": (540, 1150),
+            "oPos": (540, 1145),
         },
         "3": {
             "nameColor": "black",
-            "namePos": (1000, 707),
+            "namePos": (1000, 760),
             "orgColor": "black",
-            "oPos": (540, 1150),
+            "oPos": (540, 1145),
         },
         "4": {
             "nameColor": "black",
-            "namePos": (1000, 707),
+            "namePos": (1000, 760),
             "orgColor": "black",
-            "oPos": (540, 1150),
+            "oPos": (540, 1145),
         },
         "5": {
             "nameColor": "orange",
             "namePos": (1000, 760),
             "orgColor": "black",
-            "oPos": (540, 1150),
+            "oPos": (540, 1145),
         }
     }
 
     font1 = ImageFont.truetype("Cardo-Bold.ttf", 100)
-    font2 = ImageFont.truetype("Lato-Black.ttf", 60)
+    font2 = ImageFont.truetype("Lato-Black.ttf", 65)
     img = Image.open(index)
     # W, H = [2000, 1414]
     draw = ImageDraw.Draw(img)
