@@ -10,6 +10,7 @@ app = FastAPI()
 
 origins = [
     "https://cg-rohankaran.herokuapp.com",
+    "https://cg-rohankaran.herokuapp.com/"
 ]
 app.add_middleware(
     CORSMiddleware,
