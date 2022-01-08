@@ -37,5 +37,5 @@ class Name(BaseModel):
 
 @app.post("/add/")
 async def add_name(inp: Name):
-    response = await asyncio.gather(generate_certificate(inp.index, inp.org, inp.logo, inp.name))
+    response = await generate_certificate(inp.index, inp.org, inp.logo, inp.name)
     return response
