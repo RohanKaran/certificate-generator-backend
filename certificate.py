@@ -49,7 +49,7 @@ async def generate_certificate(index, org, logo, name):
     try:
         logo = b64decode(logo)
         logoimg = Image.open(BytesIO(logo)).convert('RGBA')
-        logoimg.thumbnail(logosize, Image.LANCZOS)
+        logoimg.thumbnail(logosize)
         img.paste(logoimg, (1700, 140), logoimg)
     except UnidentifiedImageError:
         pass
