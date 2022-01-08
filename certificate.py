@@ -45,10 +45,9 @@ async def generate_certificate(index, org, logo, name):
     draw.text(div[index]["namePos"], name, fill=div[index]["nameColor"], font=font1, anchor="ms")
     draw.text(div[index]["oPos"], org, fill=div[index]["orgColor"], font=font2, anchor="ms")
 
-    logosize = (130, 130)
     try:
         logo = b64decode(logo)
-        logoimg = Image.open(BytesIO(logo)).convert('RGBA')
+        logoimg = Image.open(BytesIO(logo))
         img.paste(logoimg, (1700, 140), logoimg)
     except UnidentifiedImageError:
         pass
