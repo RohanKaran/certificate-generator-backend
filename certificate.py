@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw, ImageFont, UnidentifiedImageError
 from base64 import b64encode, b64decode
 
 
-def generate_certificate(index, org, logo, name):
+async def generate_certificate(index, org, logo, name):
     div = {
         "1": {
             "nameColor": "black",

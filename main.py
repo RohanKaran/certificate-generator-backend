@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from certificate import generate_certificate
+import asyncio
 
 # from ensafe_certificate import generate_certificates
 
@@ -36,5 +37,5 @@ class Name(BaseModel):
 
 @app.post("/add/")
 async def add_name(inp: Name):
-    response = generate_certificate(inp.index, inp.org, inp.logo, inp.name)
+    response = await asyncio.gather(generate_certificate(inp.index, inp.org, inp.logo, inp.name))
     return response
