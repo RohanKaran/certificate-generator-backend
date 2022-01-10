@@ -8,7 +8,8 @@ from certificate import generate_certificate
 app = FastAPI()
 
 origins = [
-    "https://cg-rohankaran.herokuapp.com"
+    "https://cg-rohankaran.herokuapp.com",
+    "https://cg-rohankaran.herokuapp.com/",
 ]
 app.add_middleware(
     CORSMiddleware,
