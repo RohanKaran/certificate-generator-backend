@@ -2,15 +2,13 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from certificate import generate_certificate
-import asyncio
 
 # from ensafe_certificate import generate_certificates
 
 app = FastAPI()
 
 origins = [
-    "https://cg-rohankaran.herokuapp.com",
-    "https://cg-rohankaran.herokuapp.com/"
+    "https://cg-rohankaran.herokuapp.com"
 ]
 app.add_middleware(
     CORSMiddleware,
